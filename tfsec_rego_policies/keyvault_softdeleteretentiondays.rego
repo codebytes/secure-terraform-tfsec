@@ -6,3 +6,4 @@ deny[msg] {
     msg := "Key Vault Soft Delete Retention Days is less than 14 days"
 }
 
+#tfsec --rego-policy-dir ./tfsec_rego_policies/ ./custom_checks_examples/keyvault/ 
