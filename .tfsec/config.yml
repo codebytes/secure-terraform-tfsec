@@ -1,4 +1,0 @@
-min_required_version: v1.1.2
-severity_overrides:
-  azure-storage-enforce-https: CRITICAL
-minimum_severity: LOW

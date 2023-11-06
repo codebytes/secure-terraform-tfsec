@@ -16,9 +16,5 @@ RUN wget -q https://packages.microsoft.com/config/debian/11/packages-microsoft-p
 RUN wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null && \
     echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list 
 RUN apt-get update && apt-get install -y terraform  gh powershell azure-cli trivy
-RUN curl -L "$(curl -s https://api.github.com/repos/tenable/terrascan/releases/latest | grep -o -E "https://.+?_Linux_x86_64.tar.gz")" > terrascan.tar.gz && \
-    tar -xf terrascan.tar.gz terrascan && rm terrascan.tar.gz && \
-    install terrascan /usr/local/bin && rm terrascan
-RUN pip install checkov pre-commit
 RUN curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
 
